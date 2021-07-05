@@ -29,4 +29,10 @@
         android:text="@string/cb_solved"
         android:id="@+id/cbSolved" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/spremi"
+        android:id="@+id/bSave" />
+
 </LinearLayout>

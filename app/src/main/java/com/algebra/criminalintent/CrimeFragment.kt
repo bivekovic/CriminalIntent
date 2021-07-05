@@ -1,5 +1,6 @@
 package com.algebra.criminalintent
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -19,6 +20,7 @@ class CrimeFragment : Fragment() {
     private lateinit var etName   : EditText
     private lateinit var bDate    : Button
     private lateinit var cbSolved : CheckBox
+    private lateinit var bWeb     : Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,6 +41,13 @@ class CrimeFragment : Fragment() {
         etName   = v.findViewById( R.id.etName )
         bDate    = v.findViewById( R.id.bDate )
         cbSolved = v.findViewById( R.id.cbSolved )
+        bWeb     = v.findViewById( R.id.posjetiWeb )
+        bWeb.setOnClickListener {
+            val startSecondActivity = Intent( activity, WebActivity::class.java ).apply {
+                putExtra( KEY_PAGE, "https://www.net.hr" )
+            }
+            startActivity( startSecondActivity )
+        }
     }
 
     fun fillWithCrime( id:Int ) {

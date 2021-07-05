@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 abstract class SingleFragmentActivity : AppCompatActivity( ) {
 
     abstract fun createFragment( ) : Fragment
+    abstract fun getBundle( ) : Bundle
 
     override fun onCreate( savedInstanceState: Bundle? ) {
         super.onCreate( savedInstanceState )
@@ -14,7 +15,7 @@ abstract class SingleFragmentActivity : AppCompatActivity( ) {
 
         supportFragmentManager
             ?.beginTransaction()
-            ?.replace( R.id.fragment_container, createFragment( ) )
+            ?.replace( R.id.fragment_container, createFragment( ).apply { arguments = getBundle( ) } )
             ?.commit( )
     }
 
